@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f8a02c5d29f6448a6e89fbb5f036ea, type: 3}
+  m_Name: LevelPlay
+  m_EditorClassIdentifier: Assembly-CSharp::GameServices.Ads.AdsConfig
+  enableInterstitial: 1
+  autoLoadInterstitial: 1
+  enableRewarded: 1
+  autoLoadRewarded: 1
+  enableBanner: 1
+  autoLoadBanner: 1
+  showBannerOnLoad: 0
+  bannerPosition: 1
+  bannerSize: 3
+  respectSafeArea: 1
+  levelPlayAppKey: 2661f270d
+  levelPlayInterstitialAndroidId: iss28v3wone9ie6c
+  levelPlayInterstitialIOSId: 
+  levelPlayRewardedAndroidId: zljjkd65vz7mo612
+  levelPlayRewardedIOSId: 
+  levelPlayBannerAndroidId: dnz20rukiofedwch
+  levelPlayBannerIOSId: 
+  levelPlayRewardedPlacement: DefaultRewarded
+  admobAppId: 
+  admobInterstitialAndroidId: 
+  admobInterstitialIOSId: 
+  admobRewardedAndroidId: 
+  admobRewardedIOSId: 
+  admobBannerAndroidId: 
+  admobBannerIOSId: 
+  appLovinSdkKey: 
+  appLovinInterstitialAndroidId: 
+  appLovinInterstitialIOSId: 
+  appLovinRewardedAndroidId: 
+  appLovinRewardedIOSId: 
+  appLovinBannerAndroidId: 
+  appLovinBannerIOSId: 
+  interstitialCooldown: 60
+  rewardedCooldown: 10
+  globalFullscreenAdCooldown: 30
