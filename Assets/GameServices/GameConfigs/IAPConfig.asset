@@ -13,4 +13,12 @@ MonoBehaviour:
   m_Name: IAPConfig
   m_EditorClassIdentifier: Assembly-CSharp::IAPConfig
   enableIAP: 1
-  products: []
+  products:
+  - productName: Remove Ads
+    androidProductId: noads
+    iosProductId: noads
+    productType: 1
+  - productName: Pack 1
+    androidProductId: pack1
+    iosProductId: pack1
+    productType: 0

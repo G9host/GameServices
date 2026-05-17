@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameServices.Core.GameServicesConfig
   adsProvider: 1
   analyticsProvider: 0
-  enableIAP: 0
+  enableIAP: 1
   removeAllGameServicesSymbolsBeforeApply: 1
+  iapConfig: {fileID: 11400000, guid: 230e7a24879c1d8469e270f03959808a, type: 2}
   adsConfig: {fileID: 11400000, guid: f43f5dbc65d077341afe4d33377a98ae, type: 2}
   analyticsConfig: {fileID: 11400000, guid: 6b9886a72becbb94ab4dca5cbe2314a0, type: 2}

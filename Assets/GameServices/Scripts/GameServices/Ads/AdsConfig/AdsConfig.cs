@@ -136,11 +136,11 @@ namespace GameServices.Ads
         [Tooltip("Minimum seconds between two interstitial ads")]
         public float interstitialCooldown = 60f;
 
-        [Tooltip("Minimum seconds between two rewarded ads")]
-        public float rewardedCooldown = 10f;
+        [Tooltip("Unused for LevelPlay rewarded ads. Rewarded ads are available whenever loaded.")]
+        public float rewardedCooldown = 0f;
 
-        [Tooltip("Minimum seconds between any full-screen ads: interstitial or rewarded")]
-        public float globalFullscreenAdCooldown = 30f;
+        [Tooltip("Minimum seconds before an interstitial can show after a rewarded ad")]
+        public float globalFullscreenAdCooldown = 20f;
 
 
         // =========================================================

@@ -109,8 +109,8 @@ namespace GameServices.LevelPlayAds
 
             interstitialAd.OnAdDisplayed += adInfo =>
             {
+                // Interstitial cooldown starts only when an interstitial is shown.
                 lastInterstitialShowTime = Time.realtimeSinceStartup;
-                lastFullscreenAdShowTime = Time.realtimeSinceStartup;
             };
 
             interstitialAd.OnAdDisplayFailed += (adInfo, error) =>
@@ -157,7 +157,9 @@ namespace GameServices.LevelPlayAds
             if (Time.realtimeSinceStartup - lastInterstitialShowTime < adsConfig.interstitialCooldown)
                 return false;
 
-            if (Time.realtimeSinceStartup - lastFullscreenAdShowTime < adsConfig.globalFullscreenAdCooldown)
+            // Rewarded ads do not have cooldown, but interstitials must wait
+            // after a rewarded ad if rewarded-to-interstitial cooldown is set.
+            if (Time.realtimeSinceStartup - lastRewardedShowTime < adsConfig.globalFullscreenAdCooldown)
                 return false;
 
             return true;
@@ -217,15 +219,15 @@ namespace GameServices.LevelPlayAds
             rewardedAd.OnAdDisplayed += adInfo =>
             {
                 rewardedEarned = false;
+                // Rewarded ads are always available, but this time is used
+                // to block interstitials for globalFullscreenAdCooldown seconds.
                 lastRewardedShowTime = Time.realtimeSinceStartup;
-                lastFullscreenAdShowTime = Time.realtimeSinceStartup;
             };
 
             rewardedAd.OnAdDisplayFailed += (adInfo, error) =>
             {
                 Debug.LogError("[GameServices] Rewarded display failed: " + error);
-
-                onRewardedClosed?.Invoke(false);
+                
                 onRewardedClosed = null;
 
                 if (adsConfig.autoLoadRewarded)
@@ -235,17 +237,14 @@ namespace GameServices.LevelPlayAds
             rewardedAd.OnAdRewarded += (adInfo, reward) =>
             {
                 rewardedEarned = true;
-
+                onRewardedClosed?.Invoke(rewardedEarned);
+                onRewardedClosed = null;
                 Debug.Log("[GameServices] Reward earned: " + reward.Name + " x" + reward.Amount);
             };
 
             rewardedAd.OnAdClosed += adInfo =>
             {
                 Debug.Log("[GameServices] Rewarded closed. Reward earned: " + rewardedEarned);
-
-                onRewardedClosed?.Invoke(rewardedEarned);
-                onRewardedClosed = null;
-
                 if (adsConfig.autoLoadRewarded)
                     LoadRewarded();
             };
@@ -269,16 +268,9 @@ namespace GameServices.LevelPlayAds
 
         public bool CanShowRewarded()
         {
-            if (!IsRewardedReady())
-                return false;
-
-            if (Time.realtimeSinceStartup - lastRewardedShowTime < adsConfig.rewardedCooldown)
-                return false;
-
-            if (Time.realtimeSinceStartup - lastFullscreenAdShowTime < adsConfig.globalFullscreenAdCooldown)
-                return false;
-
-            return true;
+            // Rewarded ads have no cooldown.
+            // They are available whenever the ad is loaded and enabled.
+            return IsRewardedReady();
         }
 
         public void ShowRewarded(string placementName = null)
@@ -295,6 +287,7 @@ namespace GameServices.LevelPlayAds
                 return;
             }
 
+            rewardedEarned = false;
             onRewardedClosed = onClosed;
 
             if (string.IsNullOrEmpty(placementName))

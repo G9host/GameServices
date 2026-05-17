@@ -12,15 +12,16 @@
   <component name="ChangeListManager">
     <list default="true" id="a4911ef1-11d0-4872-b282-8ff408f329d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameServices/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameServices/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameServices/GameConfigs/Unity&amp;GA&amp;BB.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameServices/GameConfigs/Unity&amp;GA&amp;BB.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/Ads/AdsConfig/AdsConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/Ads/AdsConfig/AdsConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/Core/GameServicesConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/Core/GameServicesConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/GameServices.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/GameServices.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameServices/GameConfigs/GameServices.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameServices/GameConfigs/GameServices.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameServices/GameConfigs/IAPConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameServices/GameConfigs/IAPConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameServices/GameConfigs/LevelPlay.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameServices/GameConfigs/LevelPlay.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/Ads/LevelPlay/LevelPlayAdsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/Ads/LevelPlay/LevelPlayAdsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/Analytics/GameAnalytics/GameAnalyticsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/Analytics/GameAnalytics/GameAnalyticsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/GameServices.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/GameServices.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/IAP/IAPManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/IAP/IAPManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +133,8 @@
       <workItem from="1778959860626" duration="153000" />
       <workItem from="1778960044713" duration="5390000" />
       <workItem from="1779002513035" duration="628000" />
-      <workItem from="1779013295248" duration="5079000" />
+      <workItem from="1779013295248" duration="5161000" />
+      <workItem from="1779029943988" duration="7735000" />
     </task>
     <task id="LOCAL-00001" summary="Ads managers added.">
       <option name="closed" value="true" />
@@ -142,7 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778965385254</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added IAP and analytics scripts.">
+      <option name="closed" value="true" />
+      <created>1779019613338</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1779019613338</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,7 +180,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Ads managers added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ads managers added." />
+    <MESSAGE value="added IAP and analytics scripts." />
+    <option name="LAST_COMMIT_MESSAGE" value="added IAP and analytics scripts." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

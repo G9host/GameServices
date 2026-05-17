@@ -44,6 +44,6 @@ MonoBehaviour:
   appLovinRewardedIOSId: 
   appLovinBannerAndroidId: 
   appLovinBannerIOSId: 
-  interstitialCooldown: 60
-  rewardedCooldown: 10
-  globalFullscreenAdCooldown: 30
+  interstitialCooldown: 0
+  rewardedCooldown: 0
+  globalFullscreenAdCooldown: 0

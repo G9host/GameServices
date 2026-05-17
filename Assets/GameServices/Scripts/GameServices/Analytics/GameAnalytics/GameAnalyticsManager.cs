@@ -72,6 +72,14 @@ namespace GameServices.Analytics
             GameAnalytics.NewAdEvent(GAAdAction.RewardReceived, GAAdType.RewardedVideo, "GameServices", Safe(placement));
 #endif
         }
+        
+        public void InterstitialAdWatched(string placement)
+        {
+#if GAMESERVICES_GAMEANALYTICS
+            if (!initialized) return;
+            GameAnalytics.NewAdEvent(GAAdAction.RewardReceived, GAAdType.Interstitial, "GameServices", Safe(placement));
+#endif
+        }
 
         private static string GetLevelId(int levelNumber, string levelName)
         {

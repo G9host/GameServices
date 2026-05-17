@@ -16,14 +16,14 @@ using GameServices.AppLovinAds;
 #endif
 
 #if GAMESERVICES_UNITY_IAP
-using GameService.IAP;
+using GameServices.IAP;
 #endif
 
 namespace GameServices.Core
 {
-    public class GameServices : MonoBehaviour
+    public class GameService : MonoBehaviour
     {
-        public static GameServices Instance { get; private set; }
+        public static GameService Instance { get; private set; }
 
         [SerializeField] private GameServicesConfig config;
 
@@ -411,9 +411,7 @@ namespace GameServices.Core
             {
 #if GAMESERVICES_LEVELPLAY
                 case AdsProvider.LevelPlay:
-                    Instance.levelPlayAdsManager?.ShowRewarded(
-                        placement,
-                        onClosed);
+                    Instance.levelPlayAdsManager?.ShowRewarded(placement, onClosed);
                     break;
 #endif
 
@@ -510,6 +508,24 @@ namespace GameServices.Core
 #endif
 #if GAMESERVICES_UNITY_ANALYTICS
             Instance.unityAnalyticsManager?.RewardedAdWatched(placement);
+#endif
+        }
+        
+        public static void InterstitialAdWatched(string placement)
+        {
+            if (Instance == null) return;
+
+#if GAMESERVICES_GAMEANALYTICS
+            Instance.gameAnalyticsManager?.InterstitialAdWatched(placement);
+#endif
+#if GAMESERVICES_BYTEBREW
+            Instance.byteBrewAnalyticsManager?.InterstitialAdWatched(placement);
+#endif
+#if GAMESERVICES_FIREBASE
+            Instance.firebaseAnalyticsManager?.InterstitialAdWatched(placement);
+#endif
+#if GAMESERVICES_UNITY_ANALYTICS
+            Instance.unityAnalyticsManager?.InterstitialAdWatched(placement);
 #endif
         }
         
