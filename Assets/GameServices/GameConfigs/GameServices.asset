@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 582781e5d0691aa49afb2e87807e5725, type: 3}
-  m_Name: Unity&GA&BB
+  m_Name: GameServices
   m_EditorClassIdentifier: Assembly-CSharp::GameServices.Core.GameServicesConfig
   adsProvider: 1
-  analyticsProvider: 3
+  analyticsProvider: 0
   enableIAP: 0
+  removeAllGameServicesSymbolsBeforeApply: 1
   adsConfig: {fileID: 11400000, guid: f43f5dbc65d077341afe4d33377a98ae, type: 2}
+  analyticsConfig: {fileID: 11400000, guid: 6b9886a72becbb94ab4dca5cbe2314a0, type: 2}

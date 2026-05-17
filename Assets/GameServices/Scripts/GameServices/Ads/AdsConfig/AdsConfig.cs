@@ -142,6 +142,7 @@ namespace GameServices.Ads
         [Tooltip("Minimum seconds between any full-screen ads: interstitial or rewarded")]
         public float globalFullscreenAdCooldown = 30f;
 
+
         // =========================================================
         // HELPERS
         // =========================================================

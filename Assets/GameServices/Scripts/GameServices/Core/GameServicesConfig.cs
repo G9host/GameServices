@@ -1,4 +1,5 @@
 using GameServices.Ads;
+using GameServices.Analytics;
 using UnityEngine;
 
 namespace GameServices.Core
@@ -35,8 +36,14 @@ namespace GameServices.Core
 
         [Header("IAP")]
         public bool enableIAP = false;
-        
-        [Header("Configs")]
+
+        [Header("Scripting Define Symbols")]
+        [Tooltip("Editor button removes all GameServices symbols first, then adds symbols based on Ads Provider and Analytics Provider above.")]
+        public bool removeAllGameServicesSymbolsBeforeApply = true;
+
+        [Header("Configs")] 
+        public IAPConfig iapConfig;
         public AdsConfig adsConfig;
+        public AnalyticsConfig analyticsConfig;
     }
 }
