@@ -123,6 +123,7 @@
       <workItem from="1779002513035" duration="628000" />
       <workItem from="1779013295248" duration="5161000" />
       <workItem from="1779029943988" duration="8005000" />
+      <workItem from="1779119767747" duration="1236000" />
     </task>
     <task id="LOCAL-00001" summary="Ads managers added.">
       <option name="closed" value="true" />
@@ -148,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779040965303</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Modified IAPManager">
+      <option name="closed" value="true" />
+      <created>1779120411157</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1779120411157</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,7 +187,8 @@
     <MESSAGE value="Ads managers added." />
     <MESSAGE value="added IAP and analytics scripts." />
     <MESSAGE value="Build Sample scene." />
-    <option name="LAST_COMMIT_MESSAGE" value="Build Sample scene." />
+    <MESSAGE value="Modified IAPManager" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified IAPManager" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
