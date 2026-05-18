@@ -1,0 +1,13 @@
+{
+  "name": "com.g9host.gameservices",
+  "version": "1.0.0",
+  "displayName": "G9 Game Services",
+  "description": "Ads, Analytics and IAP package.",
+  "unity": "2022.3",
+  "author": {
+    "name": "G9host"
+  },
+  "dependencies": {
+    "com.unity.purchasing": "5.0.0"
+  }
+}
