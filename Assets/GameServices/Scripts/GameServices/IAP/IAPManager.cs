@@ -216,6 +216,23 @@ namespace GameServices.IAP
                 string transactionId = order.Info.TransactionID;
 
                 Debug.Log($"[GameServices][IAP] Purchased: {productId}");
+                
+                if (product.definition.type == ProductType.Consumable)
+                {
+                    switch (productId)
+                    {
+                        case "":
+                            break;
+                    }
+                }
+                else if (product.definition.type == ProductType.NonConsumable)
+                {
+                    switch (productId)
+                    {
+                        case "":
+                            break;
+                    }
+                }
 
                 GameService.IAPPackPurchase(productId, currency, price, transactionId);
             }
