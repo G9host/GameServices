@@ -13,7 +13,7 @@ namespace GameServices.IAP
         private IAPConfig iapConfig;
         private bool productsFetched;
         private bool isInitializing;
-
+        private HashSet<string> purchasedProducts = new();
         public bool IsInitialized => storeController != null && productsFetched;
 
         public async void Initialize(IAPConfig config)
@@ -116,8 +116,13 @@ namespace GameServices.IAP
                 : product.iosProductId;
 #endif
         }
+        
+        private IAPProductData GetProductByName(string productName)
+        {
+            return iapConfig.products.Find(x => x.productName == productName);
+        }
 
-        public void Purchase(string productId)
+        public void Purchase(string productName)
         {
             if (!IsInitialized)
             {
@@ -125,16 +130,17 @@ namespace GameServices.IAP
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(productId))
+            if (string.IsNullOrWhiteSpace(productName))
             {
                 Debug.LogWarning("[GameServices][IAP] Product id is empty.");
                 return;
             }
-
-            Product product = storeController.GetProductById(productId);
+            
+            var productData = GetProductByName(productName);
+            Product product = storeController.GetProductById(productData.GetStoreID());
             if (product == null)
             {
-                Debug.LogWarning($"[GameServices][IAP] Product not found: {productId}");
+                Debug.LogWarning($"[GameServices][IAP] Product not found: {productName}::{productData.GetStoreID()}");
                 return;
             }
 
@@ -153,16 +159,13 @@ namespace GameServices.IAP
             });
         }
 
-        public bool IsPurchased(string productId)
+        public bool IsPurchased(string productName)
         {
-            if (storeController == null || string.IsNullOrWhiteSpace(productId))
+            if (storeController == null || string.IsNullOrWhiteSpace(productName))
                 return false;
-
-            Product product = storeController.GetProductById(productId);
-
-            return product != null &&
-                   product.hasReceipt &&
-                   product.definition.type == ProductType.NonConsumable;
+            var productData = GetProductByName(productName);
+            var product = storeController.GetProductById(productData.GetStoreID());
+            return product != null && purchasedProducts.Contains(productData.GetStoreID());
         }
 
         public string GetLocalizedPrice(string productId)
@@ -178,6 +181,16 @@ namespace GameServices.IAP
         {
             productsFetched = true;
             isInitializing = false;
+            
+            purchasedProducts.Clear();
+
+            foreach (var product in products)
+            {
+                if (product == null)
+                    continue;
+                
+                purchasedProducts.Add(product.definition.id);
+            }
             Debug.Log($"[GameServices][IAP] Products fetched: {products.Count}");
         }
 

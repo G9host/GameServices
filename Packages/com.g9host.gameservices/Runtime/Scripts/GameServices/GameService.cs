@@ -529,10 +529,10 @@ namespace GameServices.Core
 #endif
         }
         
-        public static void Purchase(string productId)
+        public static void Purchase(string productName)
         {
 #if GAMESERVICES_UNITY_IAP
-    Instance?.iapManager?.Purchase(productId);
+    Instance?.iapManager?.Purchase(productName);
 #else
             Debug.LogWarning("[GameServices] Unity IAP symbol missing.");
 #endif

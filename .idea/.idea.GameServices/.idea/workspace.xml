@@ -11,7 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4911ef1-11d0-4872-b282-8ff408f329d3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameServices/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameServices/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/GameService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/GameService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/IAP/IAPConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/IAP/IAPConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/IAP/IAPManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/IAP/IAPManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +131,7 @@
       <workItem from="1779121238559" duration="439000" />
       <workItem from="1779155738337" duration="96000" />
       <workItem from="1779157065574" duration="642000" />
+      <workItem from="1779160478951" duration="1277000" />
     </task>
     <task id="LOCAL-00001" summary="Ads managers added.">
       <option name="closed" value="true" />

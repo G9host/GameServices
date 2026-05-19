@@ -24,4 +24,15 @@ public class IAPProductData
 
     [Header("Product Type")]
     public ProductType productType;
+    
+    public string GetStoreID()
+    {
+#if UNITY_ANDROID
+        return androidProductId;
+#elif UNITY_IOS
+        return iosProductId;
+#else
+        return androidProductId;
+#endif
+    }
 }
