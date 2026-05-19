@@ -10,7 +10,9 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4911ef1-11d0-4872-b282-8ff408f329d3" name="Changes" comment="" />
+    <list default="true" id="a4911ef1-11d0-4872-b282-8ff408f329d3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,6 +127,7 @@
       <workItem from="1779029943988" duration="8005000" />
       <workItem from="1779119767747" duration="1236000" />
       <workItem from="1779121238559" duration="439000" />
+      <workItem from="1779155738337" duration="96000" />
     </task>
     <task id="LOCAL-00001" summary="Ads managers added.">
       <option name="closed" value="true" />

@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "com.g9host.gameservices": {
+      "version": "file:com.g9host.gameservices",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.purchasing": "5.0.0"
+      }
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.12",
       "depth": 0,
