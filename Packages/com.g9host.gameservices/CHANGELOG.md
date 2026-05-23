@@ -2,6 +2,13 @@
 
 All notable changes to this package will be documented in this file.
 
+## [1.0.2] - 2025-05-23
+
+### Added
+- Edited GameServiceConfig
+- Apply Button added to config file for scripting symbols
+
+
 ## [1.0.1] - 2025-05-19
 
 ### Added

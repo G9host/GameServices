@@ -11,9 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4911ef1-11d0-4872-b282-8ff408f329d3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/GameService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/GameService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/IAP/IAPConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/IAP/IAPConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/IAP/IAPManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/IAP/IAPManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameServices/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameServices/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.g9host.gameservices/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.g9host.gameservices/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Editor/GameServices.Editor.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Editor/GameServices.Editor.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Editor/GameServicesConfigEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Editor/GameServicesConfigEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.g9host.gameservices/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.g9host.gameservices/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +39,8 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/GameServices/Scripts/GameServices/IAP/IAPConfig.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Packages/com.g9host.gameservices/Editor/GameServicesConfigEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Packages/com.g9host.gameservices/Editor/GameServicesDefineUtility.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -132,6 +136,7 @@
       <workItem from="1779155738337" duration="96000" />
       <workItem from="1779157065574" duration="642000" />
       <workItem from="1779160478951" duration="1277000" />
+      <workItem from="1779558805388" duration="1218000" />
     </task>
     <task id="LOCAL-00001" summary="Ads managers added.">
       <option name="closed" value="true" />

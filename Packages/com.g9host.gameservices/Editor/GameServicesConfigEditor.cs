@@ -69,7 +69,7 @@ namespace GameServices.EditorTools
             if ((config.analyticsProvider & AnalyticsProvider.UnityAnalytics) != 0)
                 yield return GameServicesDefineUtility.UnityAnalytics;
             
-            if (config.iapConfig != null && config.iapConfig.enableIAP)
+            if (config.iapConfig.enableIAP)
                 yield return GameServicesDefineUtility.UnityIAP;
             
         }
