@@ -2,6 +2,17 @@
 
 All notable changes to this package will be documented in this file.
 
+## [1.0.4] - 2025-05-27
+
+### Added
+- Changed IAPScript and added Unity services initialization 
+
+## [1.0.3] - 2025-05-27
+
+### Added
+- Edited GameService and added callback for iap
+- Changed IAPScript and added callback for iap
+
 ## [1.0.2] - 2025-05-23
 
 ### Added
