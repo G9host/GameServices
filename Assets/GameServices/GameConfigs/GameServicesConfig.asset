@@ -16,6 +16,6 @@ MonoBehaviour:
   analyticsProvider: 1
   enableIAP: 1
   removeAllGameServicesSymbolsBeforeApply: 1
-  iapConfig: {fileID: 0}
+  iapConfig: {fileID: 11400000, guid: 9c52898679db50f40993d21f08efbd3b, type: 2}
   adsConfig: {fileID: 0}
   analyticsConfig: {fileID: 0}

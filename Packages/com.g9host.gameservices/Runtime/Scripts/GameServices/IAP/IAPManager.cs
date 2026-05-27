@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
+using Unity.Services.Core;
 using GameServices.Core;
 
 namespace GameServices.IAP
@@ -33,24 +34,35 @@ namespace GameServices.IAP
             isInitializing = true;
             productsFetched = false;
 
-            storeController = UnityIAPServices.StoreController();
-
-            storeController.OnProductsFetched += OnProductsFetched;
-            storeController.OnProductsFetchFailed += OnProductsFetchFailed;
-            storeController.OnPurchasePending += OnPurchasePending;
-            storeController.OnPurchaseConfirmed += OnPurchaseConfirmed;
-            storeController.OnPurchaseFailed += OnPurchaseFailed;
-            storeController.OnStoreDisconnected += OnStoreDisconnected;
-
             try
             {
+                if (UnityServices.State == ServicesInitializationState.Uninitialized)
+                {
+                    await UnityServices.InitializeAsync();
+                    Debug.Log("[GameServices][IAP] Unity Services initialized.");
+                }
+                else
+                {
+                    Debug.Log($"[GameServices][IAP] Unity Services state: {UnityServices.State}");
+                }
+
+                storeController = UnityIAPServices.StoreController();
+
+                storeController.OnProductsFetched += OnProductsFetched;
+                storeController.OnProductsFetchFailed += OnProductsFetchFailed;
+                storeController.OnPurchasePending += OnPurchasePending;
+                storeController.OnPurchaseConfirmed += OnPurchaseConfirmed;
+                storeController.OnPurchaseFailed += OnPurchaseFailed;
+                storeController.OnStoreDisconnected += OnStoreDisconnected;
+
                 await storeController.Connect();
                 FetchProducts();
             }
             catch (Exception ex)
             {
                 isInitializing = false;
-                Debug.LogError($"[GameServices][IAP] Store connection failed: {ex.Message}");
+                productsFetched = false;
+                Debug.LogError($"[GameServices][IAP] Initialization failed: {ex.Message}");
             }
         }
 

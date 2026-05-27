@@ -149,20 +149,57 @@ namespace GameServices.LevelPlayAds
                    interstitialAd.IsAdReady();
         }
 
+        private bool CanShowInterstitial(out string reason)
+        {
+            if (!initialized)
+            {
+                reason = "LevelPlay is not initialized yet.";
+                return false;
+            }
+
+            if (!adsConfig.enableInterstitial)
+            {
+                reason = "Interstitial ads are disabled in AdsConfig.";
+                return false;
+            }
+
+            if (interstitialAd == null)
+            {
+                reason = "Interstitial ad object was not created. Check the LevelPlay interstitial ad unit id.";
+                return false;
+            }
+
+            if (!interstitialAd.IsAdReady())
+            {
+                reason = "Interstitial ad is not loaded yet.";
+                return false;
+            }
+
+            float interstitialCooldownRemaining =
+                adsConfig.interstitialCooldown - (Time.realtimeSinceStartup - lastInterstitialShowTime);
+
+            if (interstitialCooldownRemaining > 0f)
+            {
+                reason = $"Interstitial cooldown active. Remaining: {interstitialCooldownRemaining:0.0}s";
+                return false;
+            }
+
+            float fullscreenCooldownRemaining =
+                adsConfig.globalFullscreenAdCooldown - (Time.realtimeSinceStartup - lastRewardedShowTime);
+
+            if (fullscreenCooldownRemaining > 0f)
+            {
+                reason = $"Fullscreen cooldown after rewarded active. Remaining: {fullscreenCooldownRemaining:0.0}s";
+                return false;
+            }
+
+            reason = null;
+            return true;
+        }
+
         public bool CanShowInterstitial()
         {
-            if (!IsInterstitialReady())
-                return false;
-
-            if (Time.realtimeSinceStartup - lastInterstitialShowTime < adsConfig.interstitialCooldown)
-                return false;
-
-            // Rewarded ads do not have cooldown, but interstitials must wait
-            // after a rewarded ad if rewarded-to-interstitial cooldown is set.
-            if (Time.realtimeSinceStartup - lastRewardedShowTime < adsConfig.globalFullscreenAdCooldown)
-                return false;
-
-            return true;
+            return CanShowInterstitial(out _);
         }
 
         public void ShowInterstitial()
@@ -172,9 +209,9 @@ namespace GameServices.LevelPlayAds
 
         public void ShowInterstitial(string placementName, Action onClosed)
         {
-            if (!CanShowInterstitial())
+            if (!CanShowInterstitial(out string reason))
             {
-                Debug.LogWarning("[GameServices] Interstitial not ready or cooldown active.");
+                Debug.LogWarning("[GameServices] Interstitial cannot show: " + reason);
                 onClosed?.Invoke();
                 return;
             }
@@ -245,6 +282,13 @@ namespace GameServices.LevelPlayAds
             rewardedAd.OnAdClosed += adInfo =>
             {
                 Debug.Log("[GameServices] Rewarded closed. Reward earned: " + rewardedEarned);
+
+                if (!rewardedEarned)
+                {
+                    onRewardedClosed?.Invoke(false);
+                    onRewardedClosed = null;
+                }
+
                 if (adsConfig.autoLoadRewarded)
                     LoadRewarded();
             };
@@ -266,11 +310,39 @@ namespace GameServices.LevelPlayAds
                    rewardedAd.IsAdReady();
         }
 
+        private bool CanShowRewarded(out string reason)
+        {
+            if (!initialized)
+            {
+                reason = "LevelPlay is not initialized yet.";
+                return false;
+            }
+
+            if (!adsConfig.enableRewarded)
+            {
+                reason = "Rewarded ads are disabled in AdsConfig.";
+                return false;
+            }
+
+            if (rewardedAd == null)
+            {
+                reason = "Rewarded ad object was not created. Check the LevelPlay rewarded ad unit id.";
+                return false;
+            }
+
+            if (!rewardedAd.IsAdReady())
+            {
+                reason = "Rewarded ad is not loaded yet.";
+                return false;
+            }
+
+            reason = null;
+            return true;
+        }
+
         public bool CanShowRewarded()
         {
-            // Rewarded ads have no cooldown.
-            // They are available whenever the ad is loaded and enabled.
-            return IsRewardedReady();
+            return CanShowRewarded(out _);
         }
 
         public void ShowRewarded(string placementName = null)
@@ -280,9 +352,9 @@ namespace GameServices.LevelPlayAds
 
         public void ShowRewarded(string placementName, Action<bool> onClosed)
         {
-            if (!CanShowRewarded())
+            if (!CanShowRewarded(out string reason))
             {
-                Debug.LogWarning("[GameServices] Rewarded not ready or cooldown active.");
+                Debug.LogWarning("[GameServices] Rewarded cannot show: " + reason);
                 onClosed?.Invoke(false);
                 return;
             }
