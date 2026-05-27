@@ -174,15 +174,23 @@ namespace GameServices.IAP
             storeController.PurchaseProduct(product);
         }
 
-        public void RestorePurchases()
+        public void RestorePurchases(Action<bool, List<string>> onRestoreCompleted = null)
         {
             if (storeController == null)
+            {
+                onRestoreCompleted?.Invoke(false, new List<string>());
                 return;
+            }
 
             storeController.RestoreTransactions((success, error) =>
             {
                 Debug.Log($"[GameServices][IAP] Restore: {success} | {error}");
+
                 storeController.FetchPurchases();
+
+                var restoredProducts = new List<string>(purchasedProducts);
+
+                onRestoreCompleted?.Invoke(success, restoredProducts);
             });
         }
 

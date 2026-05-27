@@ -12,11 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a4911ef1-11d0-4872-b282-8ff408f329d3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameServices/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameServices/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameServices/GameConfigs/GameServicesConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameServices/GameConfigs/GameServicesConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/GameServices.Runtime.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/GameServices.Runtime.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/Ads/LevelPlay/LevelPlayAdsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/Ads/LevelPlay/LevelPlayAdsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/GameService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/GameService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/IAP/IAPManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/com.g9host.gameservices/Runtime/Scripts/GameServices/IAP/IAPManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,6 +137,7 @@
       <workItem from="1779558805388" duration="1218000" />
       <workItem from="1779868471843" duration="361000" />
       <workItem from="1779874679356" duration="1729000" />
+      <workItem from="1779888705948" duration="442000" />
     </task>
     <task id="LOCAL-00001" summary="Ads managers added.">
       <option name="closed" value="true" />

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using GameServices.Ads;
 using GameServices.Analytics;
@@ -545,10 +546,18 @@ namespace GameServices.Core
 #endif
         }
 
-        public static void RestorePurchases()
+        public static void RestorePurchases(Action<bool, List<string>> onRestoreCompleted = null)
         {
 #if GAMESERVICES_UNITY_IAP
-    Instance?.iapManager?.RestorePurchases();
+            if (Instance == null || Instance.iapManager == null)
+            {
+                onRestoreCompleted?.Invoke(false, new List<string>());
+                return;
+            }
+
+            Instance.iapManager.RestorePurchases(onRestoreCompleted);
+#else
+    onRestoreCompleted?.Invoke(false, new List<string>());
 #endif
         }
 
