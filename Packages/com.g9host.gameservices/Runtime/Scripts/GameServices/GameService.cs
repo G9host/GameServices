@@ -529,12 +529,19 @@ namespace GameServices.Core
 #endif
         }
         
-        public static void Purchase(string productName)
+        public static void Purchase(string productName, Action<bool> onPurchaseCompleted = null)
         {
 #if GAMESERVICES_UNITY_IAP
-    Instance?.iapManager?.Purchase(productName);
+            if (Instance == null || Instance.iapManager == null)
+            {
+                onPurchaseCompleted?.Invoke(false);
+                return;
+            }
+
+            Instance.iapManager.Purchase(productName, onPurchaseCompleted);
 #else
             Debug.LogWarning("[GameServices] Unity IAP symbol missing.");
+            onPurchaseCompleted?.Invoke(false);
 #endif
         }
 

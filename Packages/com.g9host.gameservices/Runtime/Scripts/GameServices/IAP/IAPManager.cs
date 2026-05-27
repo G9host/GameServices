@@ -14,6 +14,7 @@ namespace GameServices.IAP
         private bool productsFetched;
         private bool isInitializing;
         private HashSet<string> purchasedProducts = new();
+        private readonly Dictionary<string, Action<bool>> purchaseCallbacks = new();
         public bool IsInitialized => storeController != null && productsFetched;
 
         public async void Initialize(IAPConfig config)
@@ -122,27 +123,41 @@ namespace GameServices.IAP
             return iapConfig.products.Find(x => x.productName == productName);
         }
 
-        public void Purchase(string productName)
+        public void Purchase(string productName, Action<bool> onPurchaseCompleted = null)
         {
             if (!IsInitialized)
             {
                 Debug.LogWarning("[GameServices][IAP] Store not initialized or products not fetched yet.");
+                onPurchaseCompleted?.Invoke(false);
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(productName))
             {
                 Debug.LogWarning("[GameServices][IAP] Product id is empty.");
+                onPurchaseCompleted?.Invoke(false);
                 return;
             }
             
             var productData = GetProductByName(productName);
-            Product product = storeController.GetProductById(productData.GetStoreID());
-            if (product == null)
+            if (productData == null)
             {
-                Debug.LogWarning($"[GameServices][IAP] Product not found: {productName}::{productData.GetStoreID()}");
+                Debug.LogWarning($"[GameServices][IAP] Product not found in config: {productName}");
+                onPurchaseCompleted?.Invoke(false);
                 return;
             }
+
+            string storeId = productData.GetStoreID();
+            Product product = storeController.GetProductById(storeId);
+            if (product == null)
+            {
+                Debug.LogWarning($"[GameServices][IAP] Product not found: {productName}::{storeId}");
+                onPurchaseCompleted?.Invoke(false);
+                return;
+            }
+
+            if (onPurchaseCompleted != null)
+                purchaseCallbacks[storeId] = onPurchaseCompleted;
 
             storeController.PurchaseProduct(product);
         }
@@ -229,6 +244,7 @@ namespace GameServices.IAP
                 string transactionId = order.Info.TransactionID;
 
                 Debug.Log($"[GameServices][IAP] Purchased: {productId}");
+                purchasedProducts.Add(productId);
                 
                 if (product.definition.type == ProductType.Consumable)
                 {
@@ -248,12 +264,31 @@ namespace GameServices.IAP
                 }
 
                 GameService.IAPPackPurchase(productId, currency, price, transactionId);
+                InvokePurchaseCallback(productId, true);
             }
         }
 
         private void OnPurchaseFailed(FailedOrder order)
         {
             Debug.LogWarning($"[GameServices][IAP] Purchase failed: {order.FailureReason}");
+
+            foreach (var item in order.CartOrdered.Items())
+            {
+                string productId = item.Product.definition.id;
+                InvokePurchaseCallback(productId, false);
+            }
+        }
+
+        private void InvokePurchaseCallback(string productId, bool success)
+        {
+            if (string.IsNullOrWhiteSpace(productId))
+                return;
+
+            if (!purchaseCallbacks.TryGetValue(productId, out Action<bool> callback))
+                return;
+
+            purchaseCallbacks.Remove(productId);
+            callback?.Invoke(success);
         }
 #endif
     }
